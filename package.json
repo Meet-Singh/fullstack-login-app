@@ -1,0 +1,17 @@
+{
+  "name": "package",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "lerna": "^4.0.0"
+  },
+  "scripts": {
+    "devBackend": "cd packages/backend-setup && yarn run start",
+    "devFrontend": "cd packages/login-app && yarn start"
+  },
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ]
+}

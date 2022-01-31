@@ -1,0 +1,15 @@
+{
+  "name": "backend-setup",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Meet",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "express": "^4.17.2",
+    "nodemon": "^2.0.15"
+  },
+  "scripts": {
+    "start": "nodemon server.js"
+  }
+}
