@@ -1,6 +1,6 @@
 import { TextField } from "@mui/material";
 
-export const RegisterFields = () => {
+export const RegisterFields = ({ onHandleChange }) => {
   const textFieldConfigs = [
     {
       label: "UserName",
@@ -8,13 +8,14 @@ export const RegisterFields = () => {
       type: "text",
       required: true,
       className: "",
+      key: "username",
     },
     {
       label: "Email-Id",
       variant: "standard",
       type: "text",
-      required: true,
       className: "mt-3",
+      key: "email",
     },
     {
       label: "Password",
@@ -22,6 +23,7 @@ export const RegisterFields = () => {
       type: "password",
       required: true,
       className: "mt-3",
+      key: "password",
     },
     {
       label: "Re-Enter Password",
@@ -29,6 +31,7 @@ export const RegisterFields = () => {
       type: "password",
       required: true,
       className: "mt-3 mb-3",
+      key: "retryPassword",
     },
   ];
 
@@ -36,11 +39,13 @@ export const RegisterFields = () => {
     <div className="d-flex flex-column">
       {textFieldConfigs.map((config) => (
         <TextField
+          key={config.key}
           label={config.label}
           variant={config.variant}
           type={config.type}
           required={config.required}
           className={config.className}
+          onChange={(event) => onHandleChange(config.key, event.target.value)}
         />
       ))}
     </div>

@@ -1,3 +1,4 @@
+import Dashboard from "../components/Dashboard";
 import LoginUser from "../components/LoginUser";
 import RegisterUser from "../components/RegisterUser";
 import WelcomePage from "../components/WelcomePage";
@@ -24,6 +25,14 @@ export const customRoute = [
     key: "Register Page",
     name: "Register Page",
     component: RegisterUser,
+    exact: true,
+  },
+
+  {
+    path: "/dashboard",
+    key: "Dashboard Page",
+    name: "Dashboard Page",
+    component: Dashboard,
     exact: true,
   },
 ];

@@ -1,13 +1,13 @@
 import { useNavigate } from "react-router";
 import { Button } from "@mui/material";
 
-export const LoginButtons = () => {
+export const LoginButtons = ({ onHandleSubmit }) => {
   const navigate = useNavigate();
   const buttonsConfigs = [
     {
       variant: "contained",
       size: "large",
-      onClick: {},
+      onClick: onHandleSubmit,
       label: "Submit",
     },
     {
@@ -22,6 +22,7 @@ export const LoginButtons = () => {
     <div className="w-100 mb-2 mt-5 justify-content-around d-flex">
       {buttonsConfigs.map((config) => (
         <Button
+          key={config.label}
           variant={config.variant}
           size={config.size}
           onClick={config.onClick}

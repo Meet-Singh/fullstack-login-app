@@ -1,6 +1,6 @@
 import { TextField } from "@mui/material";
 
-export const LoginFields = () => {
+export const LoginFields = ({ onHandleChange }) => {
   const textFieldConfigs = [
     {
       label: "UserName",
@@ -8,6 +8,7 @@ export const LoginFields = () => {
       type: "text",
       required: true,
       className: "",
+      key: "username",
     },
     {
       label: "Password",
@@ -15,6 +16,7 @@ export const LoginFields = () => {
       type: "password",
       required: true,
       className: "mt-3 mb-3",
+      key: "password",
     },
   ];
 
@@ -27,6 +29,8 @@ export const LoginFields = () => {
           type={config.type}
           required={config.required}
           className={config.className}
+          key={config.key}
+          onChange={(event) => onHandleChange(config.key, event.target.value)}
         />
       ))}
     </div>
