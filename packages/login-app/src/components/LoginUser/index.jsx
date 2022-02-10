@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
-import axios from "axios";
+import { Alert, AlertTitle } from "@mui/material";
 
 import { LoginFields } from "./LoginFields";
 import { LoginButtons } from "./LoginButtons";
+import UserService from "../../services/userServices";
 
 import "./style.css";
-import { Alert, AlertTitle } from "@mui/material";
 
 const LoginUser = () => {
   const navigate = useNavigate();
@@ -40,8 +40,9 @@ const LoginUser = () => {
 
   const onHandleSubmit = async () => {
     try {
-      const response = await axios.get(
-        `/users/login/?username=${userDetails.username}&password=${userDetails.password}`
+      const response = await UserService.login(
+        userDetails.username,
+        userDetails.password
       );
       const responseMessage = response?.data?.message;
       setResponseData({

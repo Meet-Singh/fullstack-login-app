@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
-import axios from "axios";
 import { Alert, AlertTitle } from "@mui/material";
 
-import { RegisterButtons } from "./RegisterButtons";
 import { RegisterFields } from "./RegisterFields";
+import { RegisterButtons } from "./RegisterButtons";
+import UserService from "../../services/userServices";
 
 import "./style.css";
 
@@ -42,8 +42,9 @@ const RegisterUser = () => {
 
   const onHandleSubmit = async () => {
     try {
-      const response = await axios.post("/users/register", userDetails);
+      const response = await UserService.register(userDetails);
       const responseMessage = response?.data?.message;
+
       setResponseData({
         isData: true,
         isError: false,

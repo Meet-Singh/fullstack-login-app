@@ -1,6 +1,6 @@
 import { BrowserRouter as Router } from "react-router-dom";
 
-import CustomRoutes from "./CustomRoutes";
+import CustomRoutes from "./customRoutes";
 
 import "./App.css";
 

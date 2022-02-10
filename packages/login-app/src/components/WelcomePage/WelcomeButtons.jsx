@@ -22,6 +22,7 @@ export const WelcomeButtons = () => {
     <div className="w-100 mb-3 mt-5 justify-content-around d-flex">
       {buttonConfigs.map((config) => (
         <Button
+          key={config.label}
           variant={config.variant}
           size={config.size}
           onClick={config.onClick}
